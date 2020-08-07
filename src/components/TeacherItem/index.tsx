@@ -7,40 +7,57 @@ import {
 } from './styles';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '../../services/api';
 
-const TeacherItem: React.FC = () => {
+export interface ITeacher {
+  avatar: string;
+  bio: string;
+  cost: number;
+  id: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+
+interface ITeacherItemProps {
+  teacher: ITeacher;
+}
+
+const TeacherItem: React.FC<ITeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id,
+    });
+  }
+
   return (
     <TeacherItemContainer>
       <TeacherItemHeader>
-        <img
-          src="https://avatars2.githubusercontent.com/u/43152315?s=460&u=cfafd96957394d5ba8cf655c440e39c2ec56cdbc&v=4"
-          alt="Maicon Douglas"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Maicon Douglas</strong>
-          <span>Matemática</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </TeacherItemHeader>
 
-      <p>
-        Entusiasta das melhores tecnologias de matemática avançada.
-        <br />
-        <br />
-        Apaixonado por inventar coisas em fórmulas e por mudar a vida das
-        pessoas através de cálculos. Mais de 200.000 pessoas já passaram por uma
-        das minhas fórmulas revolucionárias. Que objetiva ser tão F#!@ quanto
-        Ciquinho!
-      </p>
+      <p>{teacher.bio}</p>
 
       <TeacherItemFooter>
         <p>
           Preço/hora
-          <strong>R$ 64,00</strong>
+          <strong>
+            R$
+            {teacher.cost}
+          </strong>
         </p>
-        <button type="button">
+        <a
+          target="blank"
+          onClick={createNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato.
-        </button>
+        </a>
       </TeacherItemFooter>
     </TeacherItemContainer>
   );

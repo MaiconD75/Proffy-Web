@@ -29,55 +29,37 @@ export const SearchTeachers = styled.form`
     color: ${colors.textInPrimary};
   }
 
+  button {
+    width: 100%;
+    height: 5.6rem;
+    background: ${colors.secundary};
+    color: ${colors.buttonText};
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    margin-top: 3.2rem;
+
+    &:hover {
+      background: ${colors.secundaryDark};
+    }
+  }
+  @media (min-width: 700px) {
+    div + div {
+      margin-top: 0;
+    }
+  }
+
   @media (min-width: 700px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     position: absolute;
     bottom: -2.8rem;
   }
 `;
-
-export const Inputblok = styled.div`
-  position: relative;
-
-  label {
-    font-size: 1.4rem;
-  }
-
-  input {
-    width: 100%;
-    height: 5.6rem;
-    margin-top: 0.8rem;
-    border-radius: 0.8rem;
-    background-color: ${colors.inputBackground};
-    border: 1px solid ${colors.lineInWhite};
-    outline: 0;
-    padding: 0 1.6rem;
-    font: 1.6rem Archivo;
-  }
-
-  & + div {
-    margin-top: 1.4rem;
-    @media (min-width: 700px) {
-      margin-top: 0;
-    }
-  }
-
-  &:focus-within::after {
-    width: calc(100% - 3.2rem);
-    height: 2px;
-    content: '';
-    background: ${colors.primaryLight};
-    position: absolute;
-    right: 1.6rem;
-    left: 1.6rem;
-    bottom: 0;
-  }
-`;
-
-export const SubjectInput = styled.input``;
-
-export const WeekDayInput = styled.input``;
-
-export const TimeInput = styled.input``;

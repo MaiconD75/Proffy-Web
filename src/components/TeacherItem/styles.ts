@@ -69,13 +69,14 @@ export const TeacherItemFooter = styled.footer`
     display: block;
   }
 
-  button {
+  a {
     width: 20rem;
     height: 5.6rem;
     background: ${colors.secundary};
     color: ${colors.buttonText};
     border: 0;
     border-radius: 0.8rem;
+    text-decoration: none;
     cursor: pointer;
     font: 700 1.4rem Archivo;
     display: flex;
@@ -94,7 +95,7 @@ export const TeacherItemFooter = styled.footer`
       margin-left: 1.6rem;
     }
 
-    button {
+    a {
       width: 24.5rem;
       font-size: 1.6rem;
       justify-content: center;

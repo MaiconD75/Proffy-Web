@@ -17,6 +17,6 @@ const colors = {
   buttonText: '#FFFFFF',
   boxBase: '#FFFFFF',
   boxFooter: '#FAFAFC',
-} as const
+} as const;
 
-export default colors
+export default colors;
